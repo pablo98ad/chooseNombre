@@ -67,6 +67,7 @@ public class ChoseNombre  {
 		frame.setBounds(100, 100, 567, 380);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setTitle("ChooseNombre by Pablo98ad");
 		
 		txtChoosenombre = new JTextField();
 		txtChoosenombre.setBackground(new Color(0, 51, 255));
