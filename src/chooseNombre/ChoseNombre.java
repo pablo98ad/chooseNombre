@@ -70,6 +70,7 @@ public class ChoseNombre  {
 		frame.setTitle("ChooseNombre by Pablo98ad");
 		
 		txtChoosenombre = new JTextField();
+		txtChoosenombre.setFocusable(false);
 		txtChoosenombre.setBackground(new Color(0, 51, 255));
 		txtChoosenombre.setDisabledTextColor(new Color(139, 0, 139));
 		txtChoosenombre.setForeground(new Color(0, 255, 0));
