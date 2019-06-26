@@ -22,6 +22,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import java.awt.SystemColor;
 
 public class ChoseNombre  {
 
@@ -31,8 +34,9 @@ public class ChoseNombre  {
 	private PalabrasAzar paZar;
 	private ArrayList<String> palabrasElegidas;
 	private String loQueSeVe;
-	private JTextPane textPane;
+	private JTextPane txtpnGhjgf;
 	private JButton copiar;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -130,7 +134,7 @@ public class ChoseNombre  {
 				
 				if(palabrasElegidas.size()>0) {
 					if(loQueSeVe==null) {
-						loQueSeVe=textPane.getText();
+						loQueSeVe=txtpnGhjgf.getText();
 					}
 					if(palabrasElegidas.size()<2) {
 						loQueSeVe=loQueSeVe+palabrasElegidas.get(palabrasElegidas.size()-1);
@@ -139,7 +143,7 @@ public class ChoseNombre  {
 						
 					}	
 					
-					textPane.setText(loQueSeVe);
+					txtpnGhjgf.setText(loQueSeVe);
 					copiar.setVisible(true);
 				}
 				
@@ -149,12 +153,13 @@ public class ChoseNombre  {
 		btnNewButton_2.setBounds(228, 130, 89, 44);
 		frame.getContentPane().add(btnNewButton_2);
 		
-		textPane = new JTextPane();
-		textPane.setFocusable(false);
-		textPane.setEditable(false);
-		textPane.setFont(new Font("Open Sans", Font.BOLD | Font.ITALIC, 15));
-		textPane.setBounds(10, 192, 528, 138);
-		frame.getContentPane().add(textPane);
+		txtpnGhjgf = new JTextPane();
+		txtpnGhjgf.setBackground(SystemColor.scrollbar);
+		txtpnGhjgf.setFocusable(false);
+		txtpnGhjgf.setEditable(false);
+		txtpnGhjgf.setFont(new Font("Open Sans", Font.BOLD | Font.ITALIC, 15));
+		txtpnGhjgf.setBounds(10, 192, 528, 138);
+		frame.getContentPane().add(txtpnGhjgf);
 		
 		
 		copiar = new JButton("Copiar");
@@ -170,6 +175,10 @@ public class ChoseNombre  {
 		copiar.setBounds(462, 164, 76, 23);
 		copiar.setVisible(false);
 		frame.getContentPane().add(copiar);
+		
+		scrollPane = new JScrollPane(txtpnGhjgf);
+		scrollPane.setBounds(10, 193, 528, 137);
+		frame.getContentPane().add(scrollPane);
 		
 		
 		
@@ -211,6 +220,4 @@ public class ChoseNombre  {
 		
 		
 	}
-
-	
 }
