@@ -8,5 +8,5 @@ Programa en Java Swing donde puedes encontrar el nombre de tu empresa u organiza
 </br>
 
 
-<a href="https://mega.nz/#!SYpxFaqC!jaHfn6-bRHi9LkgI0VqxNvnBgarnKsrRK_ftFXP5N1w"><img src="https://seed4.me/blog/wp-content/uploads/2017/01/Windows_badge.png" width="300"/></a>
+<a href="https://mega.nz/#!SYpxFaqC!jaHfn6-bRHi9LkgI0VqxNvnBgarnKsrRK_ftFXP5N1w" target="_blank"><img src="https://seed4.me/blog/wp-content/uploads/2017/01/Windows_badge.png" width="300"/></a>
 
