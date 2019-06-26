@@ -148,6 +148,7 @@ public class ChoseNombre  {
 		frame.getContentPane().add(btnNewButton_2);
 		
 		textPane = new JTextPane();
+		textPane.setFocusable(false);
 		textPane.setEditable(false);
 		textPane.setFont(new Font("Open Sans", Font.BOLD | Font.ITALIC, 15));
 		textPane.setBounds(10, 192, 528, 138);
@@ -177,21 +178,21 @@ public class ChoseNombre  {
  
         frame.addKeyListener(new KeyListener(){
             public void keyTyped(KeyEvent e){
-                //Aqui no funcionara
+                
             }
             public void keyPressed(KeyEvent e){
-            	System.out.println(e.getKeyCode());
+            //	System.out.println(e.getKeyCode());
                 if(e.getKeyCode()==10){
                     btnNewButton_2.doClick();//como si se estubiera pulsando el boton con un click
-                    System.out.println(e.getKeyCode());
+                   
                 }
                 if(e.getKeyCode()==39){
                     btnNewButton_1.doClick();//como si se estubiera pulsando el boton con un click
-                    System.out.println(e.getKeyCode());
+                   
                 }
                 if(e.getKeyCode()==37){
                     btnNewButton.doClick();//como si se estubiera pulsando el boton con un click
-                    System.out.println(e.getKeyCode());
+                   
                 }
                 
                 
@@ -201,7 +202,7 @@ public class ChoseNombre  {
                 }
             }
             public void keyReleased(KeyEvent e){
-                //Aqui tambien puedes insertar el codigo
+                
             }
         });
 		
