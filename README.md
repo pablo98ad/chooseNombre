@@ -6,6 +6,9 @@ Programa en Java Swing donde puedes encontrar el nombre de tu empresa u organiza
 </p>
 </br>
 </br>
+
+<a href="http://google.com/" rel="some text">![Foo](https://seed4.me/blog/wp-content/uploads/2017/01/Windows_badge.png)]</a>
+
 <p align="left"  href="http://www.google.com">
 <img src="https://seed4.me/blog/wp-content/uploads/2017/01/Windows_badge.png" width="300" title="Descarca">
 </p>
