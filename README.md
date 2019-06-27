@@ -1,8 +1,9 @@
 # chooseNombre
 Programa en Java Swing donde puedes encontrar el nombre de tu empresa u organización fácilmente.
+Este programa genera palabras aleatorias que en la mayoria de los casos se pueden pronunciar.
 
 <p align="center">
-  <img src="https://i.gyazo.com/e66cf488ebb14a3559c920abd7673bd0.png" width="500" title="Interfaz Aplicacion">
+  <img src="https://i.gyazo.com/e66cf488ebb14a3559c920abd7673bd0.png" width="550" title="Interfaz Aplicacion">
 </p>
 </br>
 </br>
