@@ -75,7 +75,7 @@ public class ChoseNombre  {
 		frame.setBounds(100, 100, 567, 380);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.setTitle("ChooseNombre 1.0 by Pablo98ad");
+		frame.setTitle("ChooseNombre 1.1 by Pablo98ad");
 		
 		txtChoosenombre = new JTextField();
 		txtChoosenombre.setFocusable(false);
