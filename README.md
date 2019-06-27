@@ -9,5 +9,5 @@ Este programa genera palabras aleatorias que en la mayoria de los casos se puede
 </br>
 
 
-<a href="https://mega.nz/#!uVpE3Cwa!veCV6sahBfv01J1Jfl8i1YRjSbLMeOTY_qOHXCaUZLA" target="_blank"><img src="https://seed4.me/blog/wp-content/uploads/2017/01/Windows_badge.png" width="280"/></a>
+<a href="https://mega.nz/#!uVpE3Cwa!veCV6sahBfv01J1Jfl8i1YRjSbLMeOTY_qOHXCaUZLA" target="_blank"><img src="https://cdn.pixabay.com/photo/2017/02/13/09/53/download-2062197_960_720.png" width="280"/></a>
 
