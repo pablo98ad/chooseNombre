@@ -25,6 +25,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import java.awt.SystemColor;
+import javax.swing.UIManager;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
 
 public class ChoseNombre  {
 
@@ -34,9 +37,10 @@ public class ChoseNombre  {
 	private PalabrasAzar paZar;
 	private ArrayList<String> palabrasElegidas;
 	private String loQueSeVe;
-	private JTextPane txtpnGhjgf;
+	private JTextPane textPane;
 	private JButton copiar;
 	private JScrollPane scrollPane;
+	private JButton borrarAnterior;
 
 	/**
 	 * Launch the application.
@@ -87,6 +91,12 @@ public class ChoseNombre  {
 		txtChoosenombre.setColumns(10);
 		
 		Jpalabra = new JTextField();
+		Jpalabra.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				frame.requestFocusInWindow();
+			}
+		});
 		Jpalabra.setEditable(false);
 		Jpalabra.setFont(new Font("Serif", Font.BOLD, 24));
 		Jpalabra.setHorizontalAlignment(SwingConstants.CENTER);
@@ -95,71 +105,73 @@ public class ChoseNombre  {
 		frame.getContentPane().add(Jpalabra);
 		Jpalabra.setColumns(10);
 		
-		JButton btnNewButton = new JButton("<html><p style='text-align:center'>Anterior</p><p style='text-align:center;font-size:7px' >O pulsa Flecha Izquierda</p></html>");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnAnterior = new JButton("<html><p style='text-align:center'>Anterior</p><p style='text-align:center;font-size:7px' >O pulsa Flecha Izquierda</p></html>");
+		btnAnterior.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Jpalabra.setText(paZar.anteriorPalabra());
 				frame.requestFocusInWindow();
 			}
 		});
-		btnNewButton.setBackground(new Color(210, 105, 30));
-		btnNewButton.setMargin(new Insets(0, 0, 5, 0));
-		btnNewButton.setBounds(44, 68, 89, 57);
-		frame.getContentPane().add(btnNewButton);
+		btnAnterior.setBackground(new Color(210, 105, 30));
+		btnAnterior.setMargin(new Insets(0, 0, 5, 0));
+		btnAnterior.setBounds(44, 68, 89, 57);
+		frame.getContentPane().add(btnAnterior);
 		
-		JButton btnNewButton_1 = new JButton("<html><p style='text-align:center'>Siguiente</p><p style='text-align:center;font-size:7px' >O pulsa Flecha Derecha</p></html>");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnSiguiente = new JButton("<html><p style='text-align:center'>Siguiente</p><p style='text-align:center;font-size:7px' >O pulsa Flecha Derecha</p></html>");
+		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				Jpalabra.setText(paZar.nuevaPalabra());
 				frame.requestFocusInWindow();
 			}
 		});
-		btnNewButton_1.setBackground(new Color(210, 105, 30));
+		btnSiguiente.setBackground(new Color(210, 105, 30));
 		//btnNewButton_1.setText(); 
-		btnNewButton_1.setMargin(new Insets(0, 0, 5, 0));
-		btnNewButton_1.setAlignmentX(Component.CENTER_ALIGNMENT);
-		btnNewButton_1.setBounds(405, 68, 89, 57);
-		frame.getContentPane().add(btnNewButton_1);
+		btnSiguiente.setMargin(new Insets(0, 0, 5, 0));
+		btnSiguiente.setAlignmentX(Component.CENTER_ALIGNMENT);
+		btnSiguiente.setBounds(405, 68, 89, 57);
+		frame.getContentPane().add(btnSiguiente);
 		
-		JButton btnNewButton_2 = new JButton("<html><p style='text-align:center'>Elegir</p><p style='text-align:center;font-size:7px' >O pulsa Intro</p></html>");
-		btnNewButton_2.setMargin(new Insets(0, 0, 0, 0));
-		btnNewButton_2.setBackground(new Color(0, 255, 0));
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton btnElegir = new JButton("<html><p style='text-align:center'>Elegir</p><p style='text-align:center;font-size:7px' >O pulsa Intro</p></html>");
+		btnElegir.setMargin(new Insets(0, 0, 0, 0));
+		btnElegir.setBackground(new Color(0, 255, 0));
+		btnElegir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-				palabrasElegidas.add(paZar.getPalabraActual());
+					palabrasElegidas.add(paZar.getPalabraActual());
 				}catch(Exception e1) {
 				}
 				
 				
-				if(palabrasElegidas.size()>0) {
-					if(loQueSeVe==null) {
-						loQueSeVe=txtpnGhjgf.getText();
+				if(palabrasElegidas.size()>0) {//si no hay palabra seleccionada
+					if(loQueSeVe==null) {//para que no se vea el null
+						loQueSeVe=textPane.getText();
 					}
-					if(palabrasElegidas.size()<2) {
+					if(loQueSeVe.isEmpty()/*palabrasElegidas.size()==1*/) {//para que en la primera palabra no haya guion al principio
 						loQueSeVe=loQueSeVe+palabrasElegidas.get(palabrasElegidas.size()-1);
-					}else {
-						loQueSeVe=loQueSeVe+"  -  "+palabrasElegidas.get(palabrasElegidas.size()-1);
 						
+					}else {
+							loQueSeVe=loQueSeVe+"  -  "+palabrasElegidas.get(palabrasElegidas.size()-1);
 					}	
 					
-					txtpnGhjgf.setText(loQueSeVe);
+					textPane.setText(loQueSeVe);
+					borrarAnterior.setVisible(true);
 					copiar.setVisible(true);
 				}
 				
 				frame.requestFocusInWindow();
 			}
 		});
-		btnNewButton_2.setBounds(228, 130, 89, 44);
-		frame.getContentPane().add(btnNewButton_2);
+		btnElegir.setBounds(228, 130, 89, 44);
+		frame.getContentPane().add(btnElegir);
 		
-		txtpnGhjgf = new JTextPane();
-		txtpnGhjgf.setBackground(SystemColor.scrollbar);
-		txtpnGhjgf.setFocusable(false);
-		txtpnGhjgf.setEditable(false);
-		txtpnGhjgf.setFont(new Font("Open Sans", Font.BOLD | Font.ITALIC, 15));
-		txtpnGhjgf.setBounds(10, 192, 528, 138);
-		frame.getContentPane().add(txtpnGhjgf);
+		textPane = new JTextPane();
+		textPane.setBackground(UIManager.getColor("Button.background"));
+		textPane.setFocusable(false);
+		textPane.setEditable(false);
+		textPane.setFont(new Font("Open Sans", Font.BOLD | Font.ITALIC, 15));
+		textPane.setBounds(10, 192, 528, 138);
+		frame.getContentPane().add(textPane);
 		
 		
 		copiar = new JButton("Copiar");
@@ -172,41 +184,70 @@ public class ChoseNombre  {
 			}
 			});
 		copiar.setMargin(new Insets(0, 0, 0, 0));
-		copiar.setBounds(462, 164, 76, 23);
+		copiar.setBounds(465, 164, 76, 23);
 		copiar.setVisible(false);
 		frame.getContentPane().add(copiar);
 		
-		scrollPane = new JScrollPane(txtpnGhjgf);
+		scrollPane = new JScrollPane(textPane);
 		scrollPane.setBounds(10, 193, 528, 137);
 		frame.getContentPane().add(scrollPane);
 		
+		borrarAnterior = new JButton("Borrar Anterior");
+		borrarAnterior.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		borrarAnterior.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String[] palabras;
+				
+				if (loQueSeVe!=null) {
+					if(loQueSeVe.indexOf('-')==-1) {//no hay guion y solo hay una palabra
+						loQueSeVe="";
+						borrarAnterior.setVisible(false);
+						copiar.setVisible(false);
+						
+					}else {
+						palabras=loQueSeVe.split("  -  ");
+
+						
+						loQueSeVe="";
+						loQueSeVe=loQueSeVe+palabras[0];
+						for (int i=1;i<palabras.length-1;i++) {
+							loQueSeVe=loQueSeVe+"  -  "+palabras[i];
+					}
+				}
+				}
+				textPane.setText(loQueSeVe);
+				
+				frame.requestFocusInWindow();
+			}
+		});
+		borrarAnterior.setMargin(new Insets(0, 0, 0, 0));
+		borrarAnterior.setBounds(10, 164, 95, 23);
+		frame.getContentPane().add(borrarAnterior);
+		borrarAnterior.setVisible(false);
 		
-		
-		//Invocamos el método, ahora si funcionara
-        frame.setFocusable(true);
- 
-        //Eventos
- 
+		frame.setFocusable(true);//para que nada mas abramos la aplicacion podamos pulsar teclas
+		//eventos teclas
         frame.addKeyListener(new KeyListener(){
             public void keyTyped(KeyEvent e){
                 
             }
             public void keyPressed(KeyEvent e){
-            //	System.out.println(e.getKeyCode());
+            	//System.out.println(e.getKeyCode());
                 if(e.getKeyCode()==10){
-                    btnNewButton_2.doClick();//como si se estubiera pulsando el boton con un click
+                    btnElegir.doClick();//como si se estubiera pulsando el boton con un click
                    
                 }
                 if(e.getKeyCode()==39){
-                    btnNewButton_1.doClick();//como si se estubiera pulsando el boton con un click
+                    btnSiguiente.doClick();//como si se estubiera pulsando el boton con un click
                    
                 }
                 if(e.getKeyCode()==37){
-                    btnNewButton.doClick();//como si se estubiera pulsando el boton con un click
+                    btnAnterior.doClick();//como si se estubiera pulsando el boton con un click
                    
                 }
-                
-                
+                if(e.getKeyCode()==8){
+                	borrarAnterior.doClick();
+                }
                 
                 if(e.getKeyCode()==KeyEvent.VK_ESCAPE){
                     System.exit(0);

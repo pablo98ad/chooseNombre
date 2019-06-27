@@ -45,6 +45,22 @@ public class PalabrasAzar {
 		return anteriorP;
 	}
 	
+	public boolean estaPalabraYa(String p) {
+		boolean esta=false;
+		p=p.toLowerCase();
+		
+		for (int i=0; i<this.historialPalabras.size();i++) {
+			if(p.equals(this.historialPalabras.get(i))) {
+				esta=true;
+				
+			}
+			
+		}
+		
+		
+		return esta;
+	}
+	
 	
 	private static String generadorNombresBasico() {
 		String [] consT= {"b","c","d","f","g","h","j","k","l","m","o","p","q",
